@@ -29,7 +29,7 @@ Note: This does not give you a score at the end of the game.
 Simply clone the repository to your machine.
 
 ```
-git clone https://github.com/Tong-JT/spider-typer-game.git
+git clone https://github.com/Tong-JT/spider-typer-fullstack.git
 ```
 Once the repository is cloned, you can can start developing on your chosen IDE. Run the code via a local development server such as XAMPP. Import the SQL database to phpMyAdmin to connect it. 
 
