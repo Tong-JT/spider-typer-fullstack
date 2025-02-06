@@ -1,0 +1,332 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    color: whitesmoke;
+    overflow-y: hidden;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    background-color: #3f234b;
+
+    &::selection {
+        background-color: transparent;
+    }
+}
+
+body {
+    display: grid;
+    grid-template-rows: 65% 35%;
+}
+
+@media screen and (max-width: 991.98px) {
+    body {
+        grid-template-rows: 75% 25%;
+    }
+    #main-typer {
+        margin-block: 3em;
+        padding-inline: 3em !important;
+    }
+    #guy {
+        position: sticky;
+        height: 5vh;
+        z-index: 1;
+    }
+    #spooder {
+        position: sticky;
+        height: 10vh;
+        z-index: 3;
+    }
+    #distance {
+        font-size: 3em !important;
+    }
+    #text-printing {
+        font-size: 3em !important;
+    }
+    #input-field {
+        height: 80px !important;
+        font-size: 2.5em !important;
+    }
+    .popup-menu {
+        position: absolute; 
+        left: 10% !important;
+        right: 10% !important;
+        top: 30% !important;
+        transform: none !important;
+        padding: 40px !important;
+    }
+    .click-button {
+        font-size: xx-large !important;
+    }
+    .menu-contents {
+        font-size: 2.5em !important;
+    }
+}
+
+#typer-screen {
+    display: flex;
+}
+#main-typer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: 20px;
+    padding-inline: 120px;
+    position: relative;
+}
+#main-info {
+    align-self: center;
+    text-align: center;
+}
+#graphics {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+#characters {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    z-index: 2;
+    height: 100%;
+    margin-bottom: 5%;
+}
+#giant-spider, #main-character {
+    margin-bottom: 5%;
+}
+#giant-spider {
+    z-index: 3;
+}
+
+#background {
+    overflow: hidden;
+    height: 100%;
+}
+#background-image {
+    height: 100%;
+    width: 600vw;
+    background-image: url(../img/dungeon.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
+    z-index: -1; 
+    animation: slide 30s linear infinite;
+}
+#guy {
+    position: sticky;
+    height: 10vh;
+    z-index: 1;
+}
+#spooder {
+    position: sticky;
+    height: 20vh;
+    z-index: 3;
+}
+
+#typing-area {
+    border-radius: 20px;
+    border: 2px solid rgb(124, 104, 125);
+    margin-inline: 30px;
+    margin-block: 20px;
+}
+
+#distance {
+    font-family: 'Young Serif', sans-serif;
+    font-size: xx-large;
+}
+
+#timer {
+    font-family: 'Literata Book', sans-serif;
+    font-size: large;
+    text-align: left;
+}
+#timer {
+    width: 600px;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+#text-printing {
+    border-bottom: 2px solid rgb(124, 104, 125);
+    font-family: 'Literata Book', sans-serif;
+    font-size: x-large;
+    white-space: pre-wrap;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+#typing-area {
+    padding-top: 20px;
+    padding-inline: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+#input-field {
+    background: none;
+    border: none;
+    width: 100%;
+    height: 30px;
+    color: whitesmoke;
+    font-size: large;
+    margin-block: 10px;
+    font-family: 'Literata Book', sans-serif;
+    user-select: none;
+
+
+    &:focus {
+        outline: none;
+    }
+}
+.correct {
+    color: greenyellow;
+    background-color: rgba(203, 187, 239,0.2);
+}
+
+.incorrect {
+    color: red;
+    animation: wrong 0.2s linear;
+    background-color: rgba(203, 187, 239,0.4);
+}
+
+.character-pic {
+    position: relative;
+}
+.speed-box {
+    border: 2px solid;
+    border-radius: 10px;
+    padding-inline: 0.6vw;
+    padding-top: 0.5vh;
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Minagi Bristone', sans-serif;
+    z-index: 5;                                            
+}
+#character-speed {
+    transform: translateY(-20px) translateX(-50%);
+}
+
+
+
+
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(35, 38, 92, 0.5);
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+    z-index: 6;
+}
+
+.popup-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3f234b;
+    border: 2px solid rgb(124, 104, 125);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.menu-header {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header-text {
+    color: white;
+    margin: 0;
+    z-index: 1;
+    font-family: 'Young Serif', sans-serif;
+    font-size: xx-large;
+}
+#gameoverOverlay {
+    display: none;
+}
+#results-body {
+    display: flex;
+}
+.stat-item {
+    margin: 0;
+}
+#stats-popup {
+    width: 90%;
+    max-width: 1000px; 
+}
+.menu-contents {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    font-family: 'Literata Book', sans-serif;
+    font-size: large;
+    margin-bottom: 15px;
+}
+.stats-container {
+    padding-bottom: 20px;
+}
+.click-button {
+    font-family: 'Young Serif', sans-serif;
+    border: none;
+    background-color: rgb(124, 104, 125);
+    color: white;
+    font-size: large;
+    padding: 5px;
+    padding-inline: 10px;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: rgb(103, 83, 104);;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+@keyframes wrong {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
+
+@keyframes red {
+    0% {
+        color: red;
+    }
+    50% {
+        color: inherit;
+    }
+    100% {
+        color: inherit;
+    }
+}
+
+.red {
+    animation: red 0.5s ease-out;
+}
